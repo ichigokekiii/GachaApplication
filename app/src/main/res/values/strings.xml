@@ -1,3 +1,18 @@
 <resources>
-    <string name="app_name">Gacha Application</string>
+    <string name="app_name">GachaApplication</string>
+
+    <string name="title_pokemon_slots">POKÉMON SLOTS</string>
+    <string name="instruction_match_3">Match 3 to Win a Prize</string>
+    <string name="label_choose_pokemon">Choose a Pokémon to match</string>
+    <string name="hint_enter_pokemon">e.g., Pikachu</string>
+    <string name="button_spin">SPIN</string>
+    <string name="spin_count_label">Spins: %d</string>
+
+    <string name="desc_slot_image">Slot machine reel</string>
+    <string name="desc_prize_pikachu">Pikachu prize image</string>
+    <string name="desc_prize_charmander">Charmander prize image</string>
+    <string name="desc_prize_squirtle">Squirtle prize image</string>
+    <string name="desc_prize_bulbasaur">Bulbasaur prize image</string>
+    <string name="desc_background_image">Faded Pokémon pattern background</string>
+
 </resources>

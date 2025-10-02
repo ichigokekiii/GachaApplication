@@ -1,5 +1,6 @@
-package com.example.gachaapplication // Make sure this matches your package name
+package com.example.gachaapplication
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -7,7 +8,6 @@ import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.cardview.widget.CardView
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -21,7 +21,7 @@ class SecondActivity : AppCompatActivity() {
         setContentView(R.layout.activity_second)
 
         val resultTextView = findViewById<TextView>(R.id.textViewResult)
-        val playAgainButton = findViewById<Button>(R.id.buttonPlayAgain)
+        val actionButton = findViewById<Button>(R.id.buttonPlayAgain)
         val resultSlot1 = findViewById<ImageView>(R.id.resultSlot1)
         val resultSlot2 = findViewById<ImageView>(R.id.resultSlot2)
         val resultSlot3 = findViewById<ImageView>(R.id.resultSlot3)
@@ -46,10 +46,13 @@ class SecondActivity : AppCompatActivity() {
             resultSlot2.setImageResource(getDrawableIdForPokemon(finalResult2))
             resultSlot3.setImageResource(getDrawableIdForPokemon(finalResult3))
 
+            // FIXED: More engaging win/loss messages
             if (isWinner) {
-                resultTextView.text = "You Win!"
+                // Get the pokemon's name from the intent
+                val winningPokemon = extras.getString("WINNING_POKEMON") ?: "a Pokémon"
+                resultTextView.text = "You caught a ${winningPokemon}!"
             } else {
-                resultTextView.text = "Try Again"
+                resultTextView.text = "Almost! Try again."
             }
 
             val fadeIn = AnimationUtils.loadAnimation(this@SecondActivity, R.anim.fade_in)
@@ -57,8 +60,16 @@ class SecondActivity : AppCompatActivity() {
             resultTextView.startAnimation(fadeIn)
         }
 
-        playAgainButton.setOnClickListener {
-            finish()
+        if (isWinner) {
+            actionButton.text = "Claim it now"
+            actionButton.setOnClickListener {
+                val claimIntent = Intent(this, ClaimActivity::class.java)
+                startActivity(claimIntent)
+            }
+        } else {
+            actionButton.setOnClickListener {
+                finish()
+            }
         }
     }
 

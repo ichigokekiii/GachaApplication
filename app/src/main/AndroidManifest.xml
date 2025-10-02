@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GachaApplication">
         <activity
+            android:name=".ThankYouActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ClaimActivity"
+            android:exported="false" />
+        <activity
             android:name=".SecondActivity"
             android:exported="false" />
         <activity

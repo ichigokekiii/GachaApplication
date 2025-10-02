@@ -6,7 +6,8 @@
     <string name="label_choose_pokemon">Choose a Pokémon to match</string>
     <string name="hint_enter_pokemon">e.g., Pikachu</string>
     <string name="button_spin">SPIN</string>
-    <string name="spin_count_label">Spins: %d</string>
+    <string name="spins_left_label">Spins left: %d</string>
+    <string name="win_message">You caught a %1$s!</string>
 
     <string name="desc_slot_image">Slot machine reel</string>
     <string name="desc_prize_pikachu">Pikachu prize image</string>

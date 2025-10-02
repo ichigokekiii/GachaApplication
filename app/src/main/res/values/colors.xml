@@ -3,7 +3,13 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="background">#F0EAF6</color> <color name="surface">#FFFFFF</color>   <color name="shadow_dark">#D9D2E0</color>
-    <color name="shadow_light">#FFFFFF</color>
-    <color name="accent">#E91E63</color>   <color name="text_primary">#433254</color> <color name="text_secondary">#9E90A9</color>
+    <color name="background_warm_light">#FFF8F0</color> <color name="background_warm_dark">#F8EDE0</color>
+    <color name="surface">#FFFFFF</color>
+    <color name="accent_pokeball_red">#FF4B5C</color> <color name="text_primary">#3D3B40</color>
+    <color name="text_secondary">#9E90A9</color>
+
+    <color name="glass_fill">#99FFFFFF</color>
+    <color name="glass_stroke">#B3FFFFFF</color>
+
+    <color name="text_hint_darker">#8A7D94</color>
 </resources>

@@ -3,9 +3,9 @@
     android:interpolator="@android:anim/accelerate_decelerate_interpolator">
     <scale
         android:fromXScale="1.0"
-        android:toXScale="1.05"
+        android:toXScale="1.07"
         android:fromYScale="1.0"
-        android:toYScale="1.05"
+        android:toYScale="1.07"
         android:duration="1000"
         android:repeatMode="reverse"
         android:repeatCount="infinite"

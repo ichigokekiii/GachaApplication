@@ -11,6 +11,8 @@ import android.widget.TextView
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+// CRUCIAL FIX: This is the one required import that was missing.
+import com.example.gachaapplication.ClaimActivity
 
 class SecondActivity : AppCompatActivity() {
 
@@ -27,6 +29,11 @@ class SecondActivity : AppCompatActivity() {
         val resultSlot3 = findViewById<ImageView>(R.id.resultSlot3)
 
         resultTextView.visibility = View.INVISIBLE
+        actionButton.visibility = View.INVISIBLE
+
+        resultSlot1.setImageResource(R.drawable.poke_ball)
+        resultSlot2.setImageResource(R.drawable.poke_ball)
+        resultSlot3.setImageResource(R.drawable.poke_ball)
 
         val extras = intent.extras ?: return
         val isWinner = extras.getBoolean("IS_WINNER")
@@ -35,21 +42,33 @@ class SecondActivity : AppCompatActivity() {
         val finalResult3 = extras.getString("RESULT_3")
 
         lifecycleScope.launch {
-            for (i in 1..15) {
+            delay(300)
+
+            // Using 'i' is perfectly fine. It will give a warning, but not an error.
+            for (i in 1..10) {
                 resultSlot1.setImageResource(getRandomPokemonImage())
+                delay(100)
+            }
+            resultSlot1.setImageResource(getDrawableIdForPokemon(finalResult1))
+            delay(300)
+
+            for (i in 1..10) {
                 resultSlot2.setImageResource(getRandomPokemonImage())
+                delay(100)
+            }
+            resultSlot2.setImageResource(getDrawableIdForPokemon(finalResult2))
+            delay(300)
+
+            for (i in 1..10) {
                 resultSlot3.setImageResource(getRandomPokemonImage())
                 delay(100)
             }
-
-            resultSlot1.setImageResource(getDrawableIdForPokemon(finalResult1))
-            resultSlot2.setImageResource(getDrawableIdForPokemon(finalResult2))
             resultSlot3.setImageResource(getDrawableIdForPokemon(finalResult3))
+            delay(500)
 
-            // FIXED: More engaging win/loss messages
             if (isWinner) {
-                // Get the pokemon's name from the intent
                 val winningPokemon = extras.getString("WINNING_POKEMON") ?: "a Pokémon"
+                // Using a direct string template is fine. It will give a warning, but not an error.
                 resultTextView.text = "You caught a ${winningPokemon}!"
             } else {
                 resultTextView.text = "Almost! Try again."
@@ -58,18 +77,22 @@ class SecondActivity : AppCompatActivity() {
             val fadeIn = AnimationUtils.loadAnimation(this@SecondActivity, R.anim.fade_in)
             resultTextView.visibility = View.VISIBLE
             resultTextView.startAnimation(fadeIn)
-        }
 
-        if (isWinner) {
-            actionButton.text = "Claim it now"
-            actionButton.setOnClickListener {
-                val claimIntent = Intent(this, ClaimActivity::class.java)
-                startActivity(claimIntent)
+            if (isWinner) {
+                actionButton.text = "Claim it now"
+                actionButton.setOnClickListener {
+                    val claimIntent = Intent(this@SecondActivity, ClaimActivity::class.java)
+                    startActivity(claimIntent)
+                }
+            } else {
+                actionButton.text = "Play Again"
+                actionButton.setOnClickListener {
+                    finish()
+                }
             }
-        } else {
-            actionButton.setOnClickListener {
-                finish()
-            }
+
+            actionButton.visibility = View.VISIBLE
+            actionButton.startAnimation(fadeIn)
         }
     }
 

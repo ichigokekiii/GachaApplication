@@ -4,72 +4,87 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background"
+    android:background="@drawable/background_gradient"
     tools:context=".MainActivity">
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/pokemon_bg"
-        android:scaleType="centerCrop"
-        android:alpha="0.1"
+        android:alpha="0.2"
         android:contentDescription="@string/desc_background_image"
-        app:layout_constraintTop_toTopOf="parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/pokemon_bg"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
-
-    <TextView
-        android:id="@+id/textViewTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        android:fontFamily="sans-serif-black"
-        android:text="@string/title_pokemon_slots"
-        android:textColor="@color/text_primary"
-        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
-        android:id="@+id/slotsLayout"
+        android:id="@+id/titleLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="56dp"
+        android:gravity="center_vertical"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewTitle">
+        app:layout_constraintTop_toTopOf="parent">
 
+        <ImageView
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginEnd="8dp"
+            android:src="@drawable/poke_ball" />
+
+        <TextView
+            android:id="@+id/textViewTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-black"
+            android:shadowColor="#40000000"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowRadius="2"
+            android:text="@string/title_pokemon_slots"
+            android:textColor="@color/text_primary"
+            android:textSize="26sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/slotsLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleLayout">
         <ImageView
             android:id="@+id/slot1"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_marginHorizontal="8dp"
-            android:background="@drawable/neumorph_indent_background"
+            android:layout_width="95dp"
+            android:layout_height="95dp"
+            android:layout_marginHorizontal="10dp"
+            android:background="@drawable/glass_background"
             android:contentDescription="@string/desc_slot_image"
-            android:padding="12dp"
+            android:padding="18dp"
             android:src="@drawable/poke_ball" />
-
         <ImageView
             android:id="@+id/slot2"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_marginHorizontal="8dp"
-            android:background="@drawable/neumorph_indent_background"
+            android:layout_width="95dp"
+            android:layout_height="95dp"
+            android:layout_marginHorizontal="10dp"
+            android:background="@drawable/glass_background"
             android:contentDescription="@string/desc_slot_image"
-            android:padding="12dp"
+            android:padding="18dp"
             android:src="@drawable/poke_ball" />
-
         <ImageView
             android:id="@+id/slot3"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_marginHorizontal="8dp"
-            android:background="@drawable/neumorph_indent_background"
+            android:layout_width="95dp"
+            android:layout_height="95dp"
+            android:layout_marginHorizontal="10dp"
+            android:background="@drawable/glass_background"
             android:contentDescription="@string/desc_slot_image"
-            android:padding="12dp"
+            android:padding="18dp"
             android:src="@drawable/poke_ball" />
     </LinearLayout>
 
@@ -78,9 +93,9 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="32dp"
-        android:background="@drawable/neumorph_indent_surface_background"
+        android:background="@drawable/glass_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/slotsLayout">
@@ -89,7 +104,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="16dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="8dp"
+            android:paddingHorizontal="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -99,85 +116,67 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="@string/instruction_match_3"
-                android:textColor="@color/text_secondary"
-                android:textSize="14sp" />
+                android:textColor="@color/text_primary"
+                android:textSize="19sp"
+                android:textStyle="bold" />
 
-            <GridLayout
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="8dp"
-                android:columnCount="4">
-
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:layout_marginTop="4dp">
                 <ImageView android:src="@drawable/pikachu" style="@style/PrizeImageStyle" android:contentDescription="@string/desc_prize_pikachu"/>
                 <ImageView android:src="@drawable/charmander" style="@style/PrizeImageStyle" android:contentDescription="@string/desc_prize_charmander"/>
                 <ImageView android:src="@drawable/squirtle" style="@style/PrizeImageStyle" android:contentDescription="@string/desc_prize_squirtle"/>
                 <ImageView android:src="@drawable/bulbasaur" style="@style/PrizeImageStyle" android:contentDescription="@string/desc_prize_bulbasaur"/>
-            </GridLayout>
+            </LinearLayout>
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <LinearLayout
-        android:id="@+id/inputAndCounterContainer"
-        android:layout_width="0dp"
+    <TextView
+        android:id="@+id/inputLabel"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
-        android:gravity="center_horizontal"
-        android:orientation="vertical"
-        android:paddingVertical="16dp"
-        android:background="@drawable/neumorph_indent_surface_background"
+        android:layout_marginTop="12dp"
+        android:text="@string/label_choose_pokemon"
+        android:textColor="@color/text_primary"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/prizeCard"
+        app:layout_constraintStart_toStartOf="@+id/prizeCard"
+        app:layout_constraintTop_toBottomOf="@+id/prizeCard" />
+
+    <EditText
+        android:id="@+id/editTextGuess"
+        android:layout_width="0dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="4dp"
+        android:autofillHints="name"
+        android:background="@drawable/glass_background"
+        android:gravity="center"
+        android:hint="@string/hint_enter_pokemon"
+        android:inputType="textCapWords"
+        android:paddingHorizontal="16dp"
+        android:textColor="@color/text_primary"
+        android:textColorHint="@color/text_hint_darker"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/prizeCard"
+        app:layout_constraintStart_toStartOf="@+id/prizeCard"
+        app:layout_constraintTop_toBottomOf="@+id/inputLabel" />
+
+    <TextView
+        android:id="@+id/textViewSpinCounter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:textColor="@color/text_primary"
+        android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/buttonSpin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/prizeCard"
-        app:layout_constraintVertical_bias="0.3">
-
-        <TextView
-            android:id="@+id/inputLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:text="@string/label_choose_pokemon"
-            android:textColor="@color/text_primary"
-            android:textSize="14sp"
-            android:textStyle="bold" />
-
-        <EditText
-            android:id="@+id/editTextGuess"
-            android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:layout_marginHorizontal="16dp"
-            android:autofillHints="name"
-            android:background="@drawable/neumorph_indent_background"
-            android:gravity="center"
-            android:hint="@string/hint_enter_pokemon"
-            android:inputType="textCapWords"
-            android:paddingHorizontal="16dp"
-            android:textColor="@color/text_primary"
-            android:textColorHint="@color/text_secondary"
-            android:textSize="16sp" />
-
-        <LinearLayout
-            android:id="@+id/spinCounterCard"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:background="@drawable/neumorph_extrude_background"
-            android:gravity="center"
-            android:paddingHorizontal="24dp"
-            android:paddingVertical="12dp">
-
-            <TextView
-                android:id="@+id/textViewSpinCounter"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/text_secondary"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                tools:text="Spins: 0" />
-        </LinearLayout>
-    </LinearLayout>
+        tools:text="Spins: 0" />
 
     <Button
         android:id="@+id/buttonSpin"
@@ -186,12 +185,14 @@
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="40dp"
-        android:background="@drawable/neumorph_extrude_background"
-        android:fontFamily="sans-serif-black"
+        android:background="@drawable/button_solid_red"
+        android:elevation="8dp"
+        android:fontFamily="sans-serif-medium"
         android:text="@string/button_spin"
         android:textColor="@color/white"
-        android:textSize="20sp"
-        app:backgroundTint="@color/accent"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:backgroundTint="@null"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

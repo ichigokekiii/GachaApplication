@@ -126,10 +126,30 @@
                 android:gravity="center"
                 android:orientation="horizontal"
                 android:layout_marginTop="4dp">
-                <ImageView android:src="@drawable/pikachu" style="@style/PrizeImageStyle" android:contentDescription="@string/desc_prize_pikachu"/>
-                <ImageView android:src="@drawable/charmander" style="@style/PrizeImageStyle" android:contentDescription="@string/desc_prize_charmander"/>
-                <ImageView android:src="@drawable/squirtle" style="@style/PrizeImageStyle" android:contentDescription="@string/desc_prize_squirtle"/>
-                <ImageView android:src="@drawable/bulbasaur" style="@style/PrizeImageStyle" android:contentDescription="@string/desc_prize_bulbasaur"/>
+                <ImageView
+                    android:layout_width="55dp"
+                    android:layout_height="55dp"
+                    android:layout_margin="4dp"
+                    android:contentDescription="@string/desc_prize_pikachu"
+                    android:src="@drawable/pikachu" />
+                <ImageView
+                    android:layout_width="55dp"
+                    android:layout_height="55dp"
+                    android:layout_margin="4dp"
+                    android:contentDescription="@string/desc_prize_charmander"
+                    android:src="@drawable/charmander" />
+                <ImageView
+                    android:layout_width="55dp"
+                    android:layout_height="55dp"
+                    android:layout_margin="4dp"
+                    android:contentDescription="@string/desc_prize_squirtle"
+                    android:src="@drawable/squirtle" />
+                <ImageView
+                    android:layout_width="55dp"
+                    android:layout_height="55dp"
+                    android:layout_margin="4dp"
+                    android:contentDescription="@string/desc_prize_bulbasaur"
+                    android:src="@drawable/bulbasaur" />
             </LinearLayout>
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>

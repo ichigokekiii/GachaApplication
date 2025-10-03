@@ -11,7 +11,6 @@ import android.widget.TextView
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-// CRUCIAL FIX: This is the one required import that was missing.
 import com.example.gachaapplication.ClaimActivity
 
 class SecondActivity : AppCompatActivity() {

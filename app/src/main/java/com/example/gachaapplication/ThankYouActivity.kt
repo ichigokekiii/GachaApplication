@@ -37,7 +37,6 @@ class ThankYouActivity : AppCompatActivity() {
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
             startActivity(intent)
 
-            // ADDED: Apply custom fade transition
             overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
 
             finish()
